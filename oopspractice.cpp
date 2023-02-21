@@ -1,27 +1,34 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class A{
-    int x;
-
+class Animal{
     public:
-    A(int x){
-        this->x=x;
+    int legs;
+    int eyes;
+    Animal(int legs,int eyes){
+        this->legs=legs;
+        this->eyes=eyes;
     }
-    friend class B;
-
+    void getAnimal(){
+        cout<<"Leges: "<<legs<<"\teyes :"<<eyes<<'\n';
+    }
 };
-
-class B{
+class Dog:public Animal{
+    string sound;
     public:
-    void display(A a){
-        cout<<a.x;
+    Dog(string sound, int legs, int eyes):Animal(legs,eyes){
+        this->sound=sound;
     }
+    void getDog(){
+        cout<<"Sound: "<<sound<<"\n";
+    }
+
 };
 
 int main(){
-    A *a= new A(5);
-    B *b=new B;
-    b->display(*a);
+    Dog *d=new Dog("Bow bow...",5,6);
+
+    d->getAnimal();
+    d->getDog();
     return 0;
 }
